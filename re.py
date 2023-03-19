@@ -57,3 +57,22 @@ while len(S) >= end :
     s_temp = S[start:end]
 if not flag:
     print((-1, -1))
+
+##########################################
+# Regex Substitution
+#Task:
+#You are given a text of lines. The text contains && and || symbols.
+#Your task is to modify those symbols to the following:
+#&& → and
+#|| → or
+#Both && and || should have a space " " on both sides.
+
+import re
+
+N = int(input())
+text = list()
+for index in range(N):
+    text.append(
+        re.sub(r'(?<= )\|\|(?= )', 'or', (
+            re.sub(r'(?<= )\&\&(?= )', 'and', input()))))
+print('\n'.join(text))
