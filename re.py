@@ -30,3 +30,30 @@ print(m.group(1) if m else -1)
 # match = re.findall(r'[^AaEeUuIiOo+-0-9]([AaEeUuIiOo]{2,})(?=[^AaEeUuIiOo+-0-9])', S1)
 # print(match)
 # print('\n'.join(match) if match else -1)
+
+
+###########################################
+# Re.start() & Re.end() task solving:
+
+import re
+
+S = input().strip()
+k = input().strip()
+
+flag = False
+start = 0
+end = start + len(k)
+s_temp = S[start:end]
+while len(S) >= end :    
+    m = re.match(k, s_temp)
+    if m:
+        flag = True
+        print((start, end - 1))
+        start += 1
+        end += 1      
+    else:
+        start +=  1
+        end += 1
+    s_temp = S[start:end]
+if not flag:
+    print((-1, -1))
